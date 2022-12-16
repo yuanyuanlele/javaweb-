@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.le.ssm.mapper.DMapper">
+    <insert id="insertD">
+        insert into D values (null,#{dbalance},#{dbool},#{aid})
+    </insert>
+
+    <select id="getAllD" resultType="D">
+        select * from D
+    </select>
+
+    <update id="updateBoolByDid">
+        update D set Dbool=true where Did=#{did}
+    </update>
+</mapper>

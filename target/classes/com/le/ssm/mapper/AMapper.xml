@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.le.ssm.mapper.AMapper">
+    <select id="getAllAList" resultType="A">
+        select * from A
+    </select>
+
+    <insert id="insertA" parameterType="A">
+        insert into A values (null,#{Aname},#{Apassword}, #{Ahid},#{Atype},#{Acptype},#{Acpid},#{Actype},#{Acname},#{Aphone})
+    </insert>
+
+    <select id="getMatchCount" resultType="int">
+        select count(*) from A
+        where Aname = #{username}
+          and Apassword = #{password}
+    </select>
+
+    <select id="selectAByAid" resultType="A">
+        select * from A where Aid = #{aid}
+    </select>
+    
+    <update id="updateA">
+        update A set
+                             Aname = #{Aname},
+                             Apassword = #{Apassword},
+                             Ahid = #{Ahid},
+                             Atype = #{Atype},
+                             Acptype = #{Acptype},
+                             Acpid = #{Acpid},
+                             Actype = #{Actype},
+                             Acname = #{Acname},
+                             Aphone = #{Aphone}
+           where Aid = #{Aid}
+    </update>
+
+    <delete id="deleteAByAid">
+        delete from A where Aid = #{aid}
+    </delete>
+
+   <select id="selectAByAname" resultType="A">
+       select * from A where Aname=#{username}
+   </select>
+</mapper>
