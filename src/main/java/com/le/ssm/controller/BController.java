@@ -27,8 +27,8 @@ public class BController {
         boolean dbool=false;
         int Aid=a.getAid();
         dService.insertD(dbalance,dbool,Aid);
-        List<D> Dlist=dService.getAllD();
-        session.setAttribute("Dlist",Dlist);
+        List<D> DAlist=dService.getAllD();
+        session.setAttribute("DAlist",DAlist);
         request.getRequestDispatcher("/DAindex.jsp").forward(request,response);
     }
 
@@ -36,12 +36,14 @@ public class BController {
     public void AllowPay(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         int did= Integer.parseInt(request.getParameter("Did"));
         dService.updateBoolByDid(did);
-        request.getRequestDispatcher("/Dindex.jsp").forward(request,response);
+        request.getRequestDispatcher("/Bindex").forward(request,response);
     }
 
     @RequestMapping("/Bindex")
     public void Bindex(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        dService.getAllD();
+        HttpSession session=request.getSession();
+        List<D> Dlist=dService.getAllD();
+        session.setAttribute("Dlist",Dlist);
         request.getRequestDispatcher("/Dindex.jsp").forward(request,response);
     }
 }

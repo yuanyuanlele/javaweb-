@@ -6,12 +6,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<script src="http://localhost:8080/javaweb5/static/js/jquery/2.0.0/jquery.min.js"></script>
+<link href="http://localhost:8080/javaweb5/static/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+<script src="http://localhost:8080/javaweb5/static/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<form action="register"method="post">
+<form action="register"method="post" class="table">
     <table>
         <tr>
             <td>您的姓名：</td>
